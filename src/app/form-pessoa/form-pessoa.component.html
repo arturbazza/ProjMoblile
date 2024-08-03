@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar *ngIf="modal">
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Cancel</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <form [formGroup]="formGroup" (ngSubmit)="salvar()">
+    <ion-item>
+      <ion-input label="Nome" label-placement="floating" fill="solid" placeholder="Entre um nome"
+        errorText="Nome é obrigatório" formControlName="nome"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Telefone" label-placement="floating" fill="solid" placeholder="Entre um telefone"
+        formControlName="telefone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Email" label-placement="floating" fill="solid" errorText="Entre com um email válido"
+        placeholder="Entre um email" formControlName="email"></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" expand="block" [disabled]="!formGroup.valid">
+          Salvar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

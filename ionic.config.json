@@ -1,0 +1,7 @@
+{
+  "name": "ProjMoblile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
