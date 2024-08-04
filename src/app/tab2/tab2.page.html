@@ -1,17 +1,32 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <ion-title>Lista pessoas</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="criarNovo()">Adicionar</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title size="large">Lista pessoas</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <form [formGroup]="filterForm">
+    <ion-item>
+      <ion-searchbar animated="true" placeholder="Pesquisar pelo nome" formControlName="nome"></ion-searchbar>
+    </ion-item>
+  </form>
+
+  <ion-loading [isOpen]="loading" message="Carregando..."></ion-loading>
+
+  <ion-list>
+    <ion-item *ngFor="let pessoa of pessoas">
+      <ion-label>{{pessoa.nome}} - {{pessoa.email}} ({{pessoa.telefone}})</ion-label>
+      <!-- <ion-button (click)="editar(pessoa)">Editar</ion-button> -->
+      <ion-button (click)="deletar(pessoa)">Deletar</ion-button>
+    </ion-item>
+  </ion-list>
 </ion-content>
