@@ -35,6 +35,10 @@ export class Tab2Page {
     });
   }
 
+  editar(pessoa: Pessoa) {
+    this.router.navigate(['tabs/tab1', pessoa.email])
+  }
+
   ionViewDidEnter() {
     this.listar();
     this.initializeFilter();
